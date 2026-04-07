@@ -1,9 +1,9 @@
-# Chain Guard
+# LockGuard
 
 **npm supply-chain security scanner** — detect malicious postinstall hooks, CVE vulnerabilities, and unexpected lockfile changes before they ship.
 
 ```
-npx chain-guard
+npx lockguard
 ```
 
 ## What it does
@@ -18,18 +18,18 @@ Chain Guard scans your `package-lock.json` and flags:
 
 npm supply-chain attacks are accelerating. In September 2025, 18 widely-used packages (chalk, debug, axios, and more) were compromised in a single campaign — 2.6 billion weekly downloads affected. In March 2026, Axios itself was trojanized via a malicious postinstall hook.
 
-`npm audit` doesn't catch novel attacks or suspicious install scripts. Chain Guard fills that gap.
+`npm audit` doesn't catch novel attacks or suspicious install scripts. LockGuard fills that gap.
 
 ## Installation
 
 ```bash
-npm install -g chain-guard
+npm install -g lockguard
 ```
 
 Or run without installing:
 
 ```bash
-npx chain-guard
+npx lockguard
 ```
 
 ## Usage
@@ -39,19 +39,11 @@ npx chain-guard
 chain-guard
 
 # Scan a specific lockfile
-chain-guard --path ./package-lock.json
-
-# Compare against a baseline lockfile
-chain-guard --baseline ./package-lock.json.old
-
-# HTML report
-chain-guard --output html > report.html
-
-# JSON output for CI
-chain-guard --output json > result.json
-
-# Skip CVE checks (faster, only hooks)
-chain-guard --no-cve
+lockguard --path ./package-lock.json
+lockguard --baseline ./package-lock.json.old
+lockguard --output html > report.html
+lockguard --output json > result.json
+lockguard --no-cve
 
 # Set GitHub token for higher API rate limits
 export CHAIN_GUARD_GITHUB_TOKEN=ghp_your_token
@@ -70,7 +62,7 @@ chain-guard
 ## GitHub Action
 
 ```yaml
-- uses: Jay-Suryawansh7/chain-guard-action@v1
+- uses: Jay-Suryawansh7/lockguard-action@v1
   with:
     lockfile-path: 'package-lock.json'
     output-format: 'text'
@@ -81,7 +73,7 @@ Outputs: `risk-level`, `risk-score`, `cve-count`, `hook-count`
 ## Library API
 
 ```ts
-import { checkCVEs, detectHooks, reportText } from 'chain-guard';
+import { checkCVEs, detectHooks, reportText } from 'lockguard';
 
 const cveResults = await checkCVEs([
   { name: 'axios', version: '1.14.0' },

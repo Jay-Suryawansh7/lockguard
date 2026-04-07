@@ -1,19 +1,19 @@
 {
-  "name": "chain-guard",
+    "name": "lockguard",
   "version": "0.1.0",
   "description": "npm supply-chain security scanner — detect malicious postinstall hooks, CVE vulnerabilities, and unexpected lockfile changes",
   "license": "MIT",
   "author": "Jay Suryawanshi",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jay-Suryawansh7/chain-guard"
+    "url": "https://github.com/Jay-Suryawansh7/lockguard"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "type": "module",
   "bin": {
-    "chain-guard": "./dist/cli.js"
+    "lockguard": "./dist/cli.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

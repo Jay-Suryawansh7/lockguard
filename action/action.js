@@ -52,11 +52,11 @@ async function run() {
   core.setOutput('hook-count', totalHooks.toString());
 
   if (riskLevel === 'critical' || riskLevel === 'high') {
-    core.setFailed(`Chain Guard found ${totalCVEs} CVE(s) and ${totalHooks} suspicious hook(s). Risk level: ${riskLevel}`);
+    core.setFailed(`LockGuard found ${totalCVEs} CVE(s) and ${totalHooks} suspicious hook(s). Risk level: ${riskLevel}`);
   }
 }
 
 run().catch(err => {
-  core.error(`Chain Guard action failed: ${err}`);
+  core.error(`LockGuard action failed: ${err}`);
   core.setFailed(err.message);
 });

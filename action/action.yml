@@ -1,4 +1,4 @@
-name: 'Chain Guard Security Scan'
+name: 'LockGuard Security Scan'
 description: 'Scan your npm dependencies for supply-chain vulnerabilities'
 branding:
   icon: 'shield'

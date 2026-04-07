@@ -21,7 +21,7 @@ const pkg = JSON.parse(readFileSync(resolve(import.meta.dirname, '../package.jso
 const program = new Command();
 
 program
-  .name('chain-guard')
+  .name('lockguard')
   .description('npm supply-chain security scanner')
   .version(pkg.version)
   .option('-p, --path <path>', 'path to package-lock.json', 'package-lock.json')
