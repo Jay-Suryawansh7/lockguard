@@ -1,0 +1,45 @@
+name: 'Chain Guard Security Scan'
+description: 'Scan your npm dependencies for supply-chain vulnerabilities'
+branding:
+  icon: 'shield'
+  color: 'red'
+inputs:
+  lockfile-path:
+    description: 'Path to package-lock.json'
+    required: false
+    default: 'package-lock.json'
+  baseline-path:
+    description: 'Baseline package-lock.json for diff'
+    required: false
+  output-format:
+    description: 'Output format: text or json'
+    required: false
+    default: 'text'
+  token:
+    description: 'GitHub API token (for higher rate limits)'
+    required: false
+    default: ${{ github.token }}
+  skip-cve:
+    description: 'Skip CVE checks'
+    required: false
+    default: 'false'
+  skip-hooks:
+    description: 'Skip lifecycle hook detection'
+    required: false
+    default: 'false'
+runs:
+  using: 'node20'
+  main: 'action.js'
+outputs:
+  risk-level:
+    description: 'Overall risk level (low, medium, high, critical)'
+    value: ${{ steps.scan.outputs.risk-level }}
+  risk-score:
+    description: 'Risk score (0-100)'
+    value: ${{ steps.scan.outputs.risk-score }}
+  cve-count:
+    description: 'Number of CVEs found'
+    value: ${{ steps.scan.outputs.cve-count }}
+  hook-count:
+    description: 'Number of suspicious hooks found'
+    value: ${{ steps.scan.outputs.hook-count }}
