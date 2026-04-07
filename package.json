@@ -1,6 +1,6 @@
 {
     "name": "lockguard",
-    "version": "0.1.1",
+    "version": "1.0.1",
     "description": "npm supply-chain security scanner — detect malicious postinstall hooks, CVE vulnerabilities, and unexpected lockfile changes",
     "license": "MIT",
     "author": "Jay Suryawanshi",

@@ -18,3 +18,12 @@ export {
   reportHTML,
 } from './lib/report.js';
 export type { ScanResult, OutputFormat } from './lib/report.js';
+
+export { reportSARIF } from './lib/sarif.js';
+export type { SarifReport, SarifResult } from './lib/sarif.js';
+
+export { loadConfig, getConfigPath } from './lib/config.js';
+export type { LockGuardConfig } from './lib/config.js';
+
+export { detectWorkspaces } from './lib/workspaces.js';
+export type { WorkspaceInfo } from './lib/workspaces.js';
