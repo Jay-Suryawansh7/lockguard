@@ -70,7 +70,7 @@ chain-guard
 ## GitHub Action
 
 ```yaml
-- uses: <user>/chain-guard-action@v1
+- uses: Jay-Suryawansh7/chain-guard-action@v1
   with:
     lockfile-path: 'package-lock.json'
     output-format: 'text'
